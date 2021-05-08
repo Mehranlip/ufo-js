@@ -78,7 +78,19 @@ input{
     text-indent: 10px;
     opacity: 50%;
 }
-
+p{
+    color: white;
+    font-family: 'MuseoModerno', cursive;  
+}
+a{
+    color: whitesmoke;
+    text-decoration: none !important;
+}
+a:hover{
+    transition: 1s;
+    color: #4d32e9;
+    
+}
 
 #bg {
     position: fixed; 

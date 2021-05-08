@@ -79,6 +79,7 @@ Array.from(actions.children).forEach(action=>{
                 localStorage.setItem("todos" , JSON.stringify(todos))
                 creatTodos(todos)  
             }
+            
             })
             
 
