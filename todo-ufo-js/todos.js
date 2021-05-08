@@ -67,9 +67,10 @@ Array.from(actions.children).forEach(action=>{
         action.addEventListener("click" , e =>{
             formwrapper.innerHTML = `
                 <form id="add">
-					<input  id="add" name="add" placeholder="add todo ..." >
+					<input   id="add" name="add" placeholder="add todo ..." >
 				</form>
             `
+            creatTodos(todos)
             let add = document.querySelector("#add")
             add.addEventListener("submit" , e =>{
             e.preventDefault()
@@ -85,10 +86,20 @@ Array.from(actions.children).forEach(action=>{
     } else if (action.dataset.action == "search") {
         action.addEventListener("click" , e =>{
             formwrapper.innerHTML = `
-                <form>
-					<input id="search"  name="search" placeholder="search todo ...">
+                <form id="search">
+					<input id="search" name="search" placeholder="search todo ...">
 				</form>
             `
+            let search = document.querySelector("#search")
+            search.addEventListener("keyup" , e =>{
+            e.preventDefault()
+            if (search.search.value) {
+                let filter_todos = todos.filter(todo =>todo.content.toLowerCase().includes(search.search.value.toLowerCase()))
+                creatTodos(filter_todos)
+            }else{
+                creatTodos(todos)
+            }
+            })
 
         })
     }
